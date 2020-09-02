@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ru.stqa.pft.sandbox.SquareTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-08-31T14:38:08" hostname="DESKTOP-1FLF7D3" time="0.005">
+<testsuite name="ru.stqa.pft.sandbox.SquareTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-09-01T13:51:42" hostname="DESKTOP-1FLF7D3" time="0.005">
   <properties/>
   <testcase name="testArea" classname="ru.stqa.pft.sandbox.SquareTests" time="0.005"/>
   <system-out><![CDATA[]]></system-out>
