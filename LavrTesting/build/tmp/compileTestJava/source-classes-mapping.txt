@@ -1,2 +1,4 @@
+ru/stqa/pft/testslavr/ProjectData.java
+ ru.stqa.pft.testslavr.ProjectData
 ru/stqa/pft/testslavr/GroupCreationTests.java
  ru.stqa.pft.testslavr.GroupCreationTests
