@@ -1,33 +1,16 @@
 package ru.stqa.pft.testslavr.appmanager;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import ru.stqa.pft.testslavr.model.ProjectData;
 
-import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 public class ApplicationManager {
-
   WebDriver driver;
 
   private ImportHelper importHelper;
   private SessionHelper sessionHelper;
   private ProjectHelper projectHelper;
-
-  public static boolean isAlertPresent (WebDriver driver) {
-    try {
-      driver.switchTo().alert();
-      return true;
-    } catch (NoAlertPresentException e) {
-      return false;
-    }
-  }
 
   public void init() {
     System.setProperty("webdriver.chrome.driver", "C:\\Develop\\Webdrivers\\chromedriver.exe");
@@ -55,8 +38,7 @@ public class ApplicationManager {
     sessionHelper.authorize("admin", "admin");
   }
 
-  public void stop() throws InterruptedException {
-    Thread.sleep(5000);
+  public void stop() {
     driver.quit();
   }
 

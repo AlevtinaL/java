@@ -1,16 +1,18 @@
 ru/stqa/pft/testslavr/model/ProjectData.java
  ru.stqa.pft.testslavr.model.ProjectData
-ru/stqa/pft/testslavr/appmanager/SessionHelper.java
- ru.stqa.pft.testslavr.appmanager.SessionHelper
-ru/stqa/pft/testslavr/appmanager/ImportHelper.java
- ru.stqa.pft.testslavr.appmanager.ImportHelper
 ru/stqa/pft/testslavr/appmanager/ProjectHelper.java
  ru.stqa.pft.testslavr.appmanager.ProjectHelper
 ru/stqa/pft/testslavr/tests/TestBase.java
  ru.stqa.pft.testslavr.tests.TestBase
+ru/stqa/pft/testslavr/appmanager/ImportHelper.java
+ ru.stqa.pft.testslavr.appmanager.ImportHelper
 ru/stqa/pft/testslavr/appmanager/ApplicationManager.java
  ru.stqa.pft.testslavr.appmanager.ApplicationManager
+ru/stqa/pft/testslavr/appmanager/SessionHelper.java
+ ru.stqa.pft.testslavr.appmanager.SessionHelper
 ru/stqa/pft/testslavr/tests/ProjectCreationTests.java
  ru.stqa.pft.testslavr.tests.ProjectCreationTests
+ru/stqa/pft/testslavr/appmanager/HelperBase.java
+ ru.stqa.pft.testslavr.appmanager.HelperBase
 ru/stqa/pft/testslavr/tests/DataImportTests.java
  ru.stqa.pft.testslavr.tests.DataImportTests

@@ -4,11 +4,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class SessionHelper {
-  private WebDriver driver;
+public class SessionHelper extends HelperBase {
 
   public SessionHelper(WebDriver driver) {
-    this.driver = driver;
+    super(driver);
   }
 
   public void authorize(String userName, String userPass) {
@@ -16,6 +15,6 @@ public class SessionHelper {
     login.sendKeys(userName);
     WebElement pass = driver.findElement(By.cssSelector("#password"));
     pass.sendKeys(userPass);
-    driver.findElement(By.name("button")).click();
+    click(By.name("button"));
   }
 }
