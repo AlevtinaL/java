@@ -1,4 +1,4 @@
-package ru.stqa.pft.testslavr;
+package ru.stqa.pft.testslavr.model;
 
 public class ProjectData {
   private final String nameProject;
