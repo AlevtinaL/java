@@ -13,12 +13,9 @@ public class ProjectCreationTests extends TestBase {
     app.getProjectHelper().addUserProject();
     app.getProjectHelper().fillProjectForm(new ProjectData(UUID.randomUUID().toString(), "TestDescription"));
     app.getProjectHelper().openCreatedProject();
+    app.getProjectHelper().openTabAnalysis();
+    app.getImportHelper().openTabImport();
+    app.getProjectHelper().openTabGraph();
   }
 
-//  private void cancelCreateProject() {
-//    addUserProject();
-//    driver.findElement(By.xpath("//*[@data-test-id='checkbox-cancel-data-button']")).click();
-//    String cancelButton = "//*[@data-test-id='cancel-data-button']";
-//    driver.findElement(By.xpath(cancelButton)).click();
-//  }
 }

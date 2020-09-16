@@ -8,9 +8,9 @@ import java.util.concurrent.TimeUnit;
 public class ApplicationManager {
   WebDriver driver;
 
-  private ImportHelper importHelper;
   private SessionHelper sessionHelper;
   private ProjectHelper projectHelper;
+  private ImportHelper importHelper;
 
   public void init() {
     System.setProperty("webdriver.chrome.driver", "C:\\Develop\\Webdrivers\\chromedriver.exe");
@@ -30,9 +30,9 @@ public class ApplicationManager {
 //    Общие настройки
     driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
     driver.get("http://localhost:8080/home");
-    sessionHelper = new SessionHelper(driver);
     importHelper = new ImportHelper(driver);
     projectHelper = new ProjectHelper(driver);
+    sessionHelper = new SessionHelper(driver);
     System.out.println(driver.getTitle());
 
     sessionHelper.authorize("admin", "admin");
@@ -49,4 +49,5 @@ public class ApplicationManager {
   public ProjectHelper getProjectHelper() {
     return projectHelper;
   }
+
 }

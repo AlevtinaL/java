@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ru.stqa.pft.testslavr.tests.DataImportTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-09-16T15:42:07" hostname="DESKTOP-1FLF7D3" time="47.632">
+  <properties/>
+  <testcase name="testGroupCreation" classname="ru.stqa.pft.testslavr.tests.DataImportTests" time="47.632"/>
+  <system-out><![CDATA[GAVR
+page import
+Загрузка файлов
+false
+false
+]]></system-out>
+  <system-err><![CDATA[Starting ChromeDriver 85.0.4183.87 (cd6713ebf92fa1cacc0f1a598df280093af0c5d7-refs/branch-heads/4183@{#1689}) on port 26564
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully.
+сен 16, 2020 6:41:53 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+]]></system-err>
+</testsuite>
