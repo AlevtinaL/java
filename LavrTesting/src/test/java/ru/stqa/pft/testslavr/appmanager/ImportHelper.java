@@ -3,12 +3,11 @@ package ru.stqa.pft.testslavr.appmanager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.remote.JsonToWebElementConverter;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import ru.stqa.pft.testslavr.model.ProjectData;
 
 import java.time.Duration;
-import java.util.List;
 
 public class ImportHelper extends HelperBase {
 
@@ -16,11 +15,11 @@ public class ImportHelper extends HelperBase {
     super(driver);
   }
 
-  public void openProject() {
-    wait(By.xpath("//li[@class='name']"));
-    click(By.linkText("Test25"));
-    wait(By.xpath("//*[@data-test-id='button-createSearch']"));
-  }
+//  public void openProject() {
+//    wait(By.xpath("//li[@class='name']"));
+////    click(By.linkText("NMap"));
+//    wait(By.xpath("//*[@data-test-id='button-createSearch']"));
+//  }
 
   public void importFile() {
     String nameFile = "thread.rar";

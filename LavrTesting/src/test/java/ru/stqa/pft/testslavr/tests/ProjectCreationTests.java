@@ -12,7 +12,7 @@ public class ProjectCreationTests extends TestBase {
     app.getProjectHelper().gotoCreateProject();
     app.getProjectHelper().addUserProject();
     app.getProjectHelper().fillProjectForm(new ProjectData(UUID.randomUUID().toString(), "TestDescription"));
-    app.getProjectHelper().openCreatedProject();
+    app.getProjectHelper().openModalWindowCreatedProject();
     app.getProjectHelper().openTabAnalysis();
     app.getImportHelper().openTabImport();
     app.getProjectHelper().openTabGraph();
