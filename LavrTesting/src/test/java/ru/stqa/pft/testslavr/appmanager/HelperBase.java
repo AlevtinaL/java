@@ -1,13 +1,13 @@
 package ru.stqa.pft.testslavr.appmanager;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoAlertPresentException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+import java.util.function.Function;
 
 public class HelperBase {
   protected WebDriver driver;
@@ -24,9 +24,47 @@ public class HelperBase {
     new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.presenceOfElementLocated(locator));
   }
 
+  protected void waitAndClick(By locator) {
+    new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.presenceOfElementLocated(locator));
+    click(locator);
+  }
+
+  protected void wait(Function<WebDriver, WebElement> function) {
+    new WebDriverWait(driver, Duration.ofSeconds(10)).until(function);
+  }
+
   protected void addFieldValue(By locator, String text) {
     WebElement login = driver.findElement(locator);
+    login.click();
+    login.clear();
     login.sendKeys(text);
+  }
+
+  protected void addFieldValueAndEnter(By locator, String text) {
+    WebElement login = driver.findElement(locator);
+    login.click();
+    login.clear();
+    login.sendKeys(text);
+    login.sendKeys(Keys.ENTER);
+  }
+
+  protected int countElements(By locator) {
+    List<WebElement> count = driver.findElements(locator);
+    return count.size();
+  }
+
+  protected boolean isElementPresent(By selector) {
+    driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+//    logger.debug("Is element present"+selector);
+    boolean returnVal = true;
+    try {
+      driver.findElement(selector);
+    } catch (NoSuchElementException e) {
+      returnVal = false;
+    } finally {
+      driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+    }
+    return returnVal;
   }
 
 //  protected void getElementByAndClick(ByOption by, String query) {
@@ -77,11 +115,12 @@ public class HelperBase {
     }
   }
 
-  protected String getProjectIdByUrl(){
+  protected String getProjectIdByUrl() {
     String projectId = null;
     String c = driver.getCurrentUrl();
     String[] parts = c.split("/");
     projectId = parts[parts.length - 2];
     return projectId;
   }
+
 }

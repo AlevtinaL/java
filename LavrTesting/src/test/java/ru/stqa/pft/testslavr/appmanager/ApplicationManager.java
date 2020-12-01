@@ -11,6 +11,7 @@ public class ApplicationManager {
   private SessionHelper sessionHelper;
   private ProjectHelper projectHelper;
   private ImportHelper importHelper;
+  private DataTypeHelper dataTypeHelper;
 
   public void init() {
     System.setProperty("webdriver.chrome.driver", "C:\\Develop\\Webdrivers\\chromedriver.exe");
@@ -33,6 +34,7 @@ public class ApplicationManager {
     importHelper = new ImportHelper(driver);
     projectHelper = new ProjectHelper(driver);
     sessionHelper = new SessionHelper(driver);
+    dataTypeHelper = new DataTypeHelper(driver);
     System.out.println(driver.getTitle());
 
     sessionHelper.authorize("admin", "admin");
@@ -50,4 +52,6 @@ public class ApplicationManager {
     return projectHelper;
   }
 
+  public DataTypeHelper getDataTypeHelper() {
+    return dataTypeHelper; }
 }

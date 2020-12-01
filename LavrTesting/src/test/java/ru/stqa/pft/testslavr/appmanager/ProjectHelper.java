@@ -1,11 +1,18 @@
 package ru.stqa.pft.testslavr.appmanager;
 
+import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import ru.stqa.pft.testslavr.model.DataTypeNodeName;
 import ru.stqa.pft.testslavr.model.ProjectData;
 
 import java.sql.SQLOutput;
+import java.time.Duration;
 
 import static jdk.nashorn.internal.objects.ArrayBufferView.length;
 
@@ -19,12 +26,19 @@ public class ProjectHelper extends HelperBase {
   public void addUserProject() {
     String addUser = "//*[@data-test-id='add-user-project']";
     String checkboxUser = "//div[@data-test-id='checkbox-user-project']";
+    String buttonAdd = "//*[@data-test-id='checkbox-add-data-button']";
+
     wait(By.xpath(addUser));
     click(By.xpath(addUser));
+
     wait(By.xpath(checkboxUser + "//input"));
+    //click((driver) -> driver.findElement(By.xpath(checkboxUser)).findElement(By.tagName("label")));
     driver.findElement(By.xpath(checkboxUser)).findElement(By.tagName("label")).click();
+
 //    getElementByAndClick(ByOption.XPATH, "checkbox-add-data-button");
-    click(By.xpath("//*[@data-test-id='checkbox-add-data-button']"));
+
+    wait(ExpectedConditions.elementToBeClickable(By.xpath(buttonAdd)));
+    click(By.xpath(buttonAdd));
   }
 
   public void gotoCreateProject() {
@@ -70,11 +84,16 @@ public class ProjectHelper extends HelperBase {
     System.out.println("page graph");
   }
 
-  public void createProjectNewNode() {
+  public void createProjectNewNode(DataTypeNodeName nameType) throws InterruptedException {
     click(By.xpath("//*[@data-test-id='new-node']"));
-    wait(By.xpath("//*[@data-test-id='data-type-input']"));
-    addFieldValue(By.xpath("//*[@data-test-id='data-type-input']"), "Персона");
-//    driver.findElement(By.xpath("//*[@data-test-id='data-type-input']")).sendKeys("Персона");
-//    driver.findElement(By.xpath("//body/div[2]/div[1]/div/div/div/div/div[1]/div/aside/div[1]/div[1]/input")).sendKeys("Персона");
+//    wait(By.xpath("//*[@data-test-id='cancel-button']"));
+    addFieldValue(By.xpath("//*[@class='modal-dialog modal-fit-height']//input"), nameType.getDataTypeNodeName());
+//    System.out.println(driver.findElement(By.xpath("//div[@class='grid-item-title' and text()='Персона']")).getText());
+//    new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.presenceOfElementLocated());
+//    WebElement dynamicElement = (new WebDriverWait(driver,  Duration.ofSeconds(10)).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@class='grid-item-title' and text()= "+ datatype +"]"))));
+//    wait(By.xpath("//*div[@class='grid-item-title' and text()="+datatype+"]"));
+    Thread.sleep(2000);
+    click(By.xpath("//div[@class='grid-item-title']"));
   }
+
 }
